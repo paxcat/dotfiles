@@ -5,10 +5,10 @@ sudo pacman -Syy
 sudo pacman -Syu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget base-devel linux-headers xdg-user-dirs xdg-utils libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xwallpaper sxiv scrot terminus-font neofetch htop alsa-utils
+sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xwallpaper sxiv scrot terminus-font neofetch htop alsa-utils
 
 # Instalar controlador de GPU Intel
-# sudo pacman -S --noconfirm xf86-video-intel
+sudo pacman -S --noconfirm xf86-video-intel
 # Cargar el módulo i915 en /etc/mkinitcpio.conf y ejecutar: $ mkinitcpio -p linux
 
 # Descargar y compilar dwm, st y dmenu
@@ -20,17 +20,19 @@ cd ~/.local/src/dmenu/ && make clean && sudo make install
 # Instalar un compositor
 git clone https://aur.archlinux.org/picom-ibhagwan-git.git ~/.local/src/picom/
 cd ~/.local/src/picom/
-makepkg -si --noconfirm
+makepkg -si
 
 # Instalar una fuente con íconos
-mkdir ~/.local/share/fonts/ttf/FiraCode
-cd ~/.local/share/fonts/ttf/FiraCode/
+sudo mkdir -p /usr/share/fonts/ttf/FiraCode
+cd /usr/share/fonts/ttf/FiraCode/
 wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+cd
 fc-cache
 
 # Crear enlaces simbólicos de los archivos de configuración
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.xinitrc ~/.xinitrc
+mkdir ~/.config/picom
 ln -s ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 
 # Descargar mi configuración de Neovim
