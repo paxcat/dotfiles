@@ -5,14 +5,14 @@ sudo pacman -Syy
 sudo pacman -Syu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget git neovim base-devel linux-headers xdg-user-dirs xdg-utils libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xwallpaper sxiv scrot terminus-font neofetch htop alsa-utils
+sudo pacman -S --noconfirm wget base-devel linux-headers xdg-user-dirs xdg-utils libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xwallpaper sxiv scrot terminus-font neofetch htop alsa-utils
 
 # Instalar controlador de GPU Intel
 # sudo pacman -S --noconfirm xf86-video-intel
 # Cargar el módulo i915 en /etc/mkinitcpio.conf y ejecutar: $ mkinitcpio -p linux
 
-# Copiar y construir dwm, st y dmenu
-cp -r ~/.dotfiles/.local/src/ ~/.local/src/
+# Descargar y compilar dwm, st y dmenu
+cp -r ~/dotfiles/.local/src/ ~/.local/
 cd ~/.local/src/dwm/ && make clean && sudo make install
 cd ~/.local/src/st/ && make clean && sudo make install
 cd ~/.local/src/dmenu/ && make clean && sudo make install
@@ -29,10 +29,9 @@ wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts
 fc-cache
 
 # Crear enlaces simbólicos de los archivos de configuración
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-ln -s ~/.dotfiles/.xinitrc ~/.xinitrc
-ln -s ~/.dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
-ln -s ~/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.xinitrc ~/.xinitrc
+ln -s ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 
 # Descargar mi configuración de Neovim
 git clone https://github.com/MrSniezny/nvim ~/.config/nvim/
@@ -41,5 +40,5 @@ git clone https://github.com/MrSniezny/nvim ~/.config/nvim/
 startx
 
 # Hacer ejecutable al script
-# chmod +x instalacion.sh 
-# ./.dotfiles/instalacion.sh
+# chmod +x instalacion.sh
+# ./dotfiles/instalacion.sh
