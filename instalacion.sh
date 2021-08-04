@@ -5,7 +5,7 @@ sudo pacman -Syy
 sudo pacman -Syu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot terminus-font neofetch alsa-utils mpd ncmpcpp
+sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot terminus-font neofetch alsa-utils mpd mpc ncmpcpp
 
 # Instalar controlador de GPU Intel
 sudo pacman -S --noconfirm xf86-video-intel
