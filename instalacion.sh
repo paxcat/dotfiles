@@ -40,6 +40,9 @@ cd
 fc-cache
 
 # Crear enlaces simbólicos de los archivos de configuración
+rm ~/.xinitrc
+rm ~/.bashrc
+rm ~/.config/picom/picom.conf
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.xinitrc ~/.xinitrc
 mkdir ~/.config/picom
