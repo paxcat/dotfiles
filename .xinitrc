@@ -7,9 +7,9 @@ xrandr -s 1366x768 &
 picom -f &
 picom --config ~/.config/picom/picom.conf &
 
-xwallpaper --zoom ~/wallpapers/Hallstatt.jpg &
+xwallpaper --zoom ~/wallpapers/yourwallpaper.jpg &
 
-# slstatus &
+slstatus &
 
 while true; do
     # Log stderror to a file 
