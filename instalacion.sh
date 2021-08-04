@@ -25,7 +25,7 @@ makepkg -si
 # Instalar una fuente con íconos
 sudo mkdir -p /usr/share/fonts/ttf/FiraCode
 cd /usr/share/fonts/ttf/FiraCode/
-wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+sudo wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 cd
 fc-cache
 
