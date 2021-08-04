@@ -5,21 +5,31 @@ sudo pacman -Syy
 sudo pacman -Syu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xwallpaper sxiv scrot terminus-font neofetch htop alsa-utils
+sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot terminus-font neofetch alsa-utils mpd ncmpcpp
 
 # Instalar controlador de GPU Intel
 sudo pacman -S --noconfirm xf86-video-intel
 # Cargar el módulo i915 en /etc/mkinitcpio.conf y ejecutar: $ mkinitcpio -p linux
 
-# Descargar y compilar dwm, st y dmenu
+# Compilar dwm, st y dmenu
 cp -r ~/dotfiles/.local/src/ ~/.local/
 cd ~/.local/src/dwm/ && make clean && sudo make install
 cd ~/.local/src/st/ && make clean && sudo make install
 cd ~/.local/src/dmenu/ && make clean && sudo make install
 
-# Instalar un compositor
+# Instalar compositor picom
 git clone https://aur.archlinux.org/picom-ibhagwan-git.git ~/.local/src/picom/
 cd ~/.local/src/picom/
+makepkg -si
+
+# Instalar fuente para braille
+git clone https://aur.archlinux.org/ttf-ubraille.git ~/.local/src/ubraille/
+cd ~/.local/src/ubraille/
+makepkg -si
+
+# Instalar monitor de sistema gotop
+git clone https://aur.archlinux.org/gotop.git ~/.local/src/gotop/
+cd ~/.local/src/gotop/
 makepkg -si
 
 # Instalar una fuente con íconos
