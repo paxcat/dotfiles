@@ -98,44 +98,35 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+  /* 8 normal colors */
+  [0] = "#1d2021", /* medium contrast: #282828 / hard contrast: #1d2021 / soft contrast: #32302f */
+  [1] = "#cc241d", /* red     */
+  [2] = "#98971a", /* green   */
+  [3] = "#d79921", /* yellow  */
+  [4] = "#458588", /* blue    */
+  [5] = "#b16286", /* magenta */
+  [6] = "#689d6a", /* cyan    */
+  [7] = "#a89984", /* white   */
 
-   	/* 8 normal colors */
-       "#000000",
-       "#e33400",
-       "#5ccc96",
-       "#b3a1e6",
-       "#00a3cc",
-       "#f2ce00",
-       "#7a5ccc",
-       "#686f9a",
- 
-    /* 8 bright colors */
-       "#686f9a",
-       "#e33400",
-       "#5ccc96",
-       "#b3a1e6",
-       "#00a3cc",
-       "#f2ce00",
-       "#7a5ccc",
-       "#f0f1ce",
- 
-       [255] = 0,
- 
-       "#ecf0c1", // 256 -> reverse cursor
-       "#ecf0c1", // 257 -> cursor
-       "#ecf0c1", // 258 -> foreground
-       "#0f111b", // 259 -> background
-
- };
+  /* 8 bright colors */
+  [8]  = "#928374", /* black   */
+  [9]  = "#fb4934", /* red     */
+  [10] = "#b8bb26", /* green   */
+  [11] = "#fabd2f", /* yellow  */
+  [12] = "#83a598", /* blue    */
+  [13] = "#d3869b", /* magenta */
+  [14] = "#8ec07c", /* cyan    */
+  [15] = "#ebdbb2", /* white   */
+};
  
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 257;
-unsigned int defaultrcs = 256;
+unsigned int defaultfg = 15;
+unsigned int defaultbg = 0;
+static unsigned int defaultcs = 15;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -144,7 +135,7 @@ unsigned int defaultrcs = 256;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 6;
 
 /*
  * Default columns and rows numbers
