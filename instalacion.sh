@@ -1,11 +1,17 @@
 #!/bin/bash
 
 # Actualizar base de datos y paquetes
-sudo pacman -Syy
-sudo pacman -Syu --noconfirm
+sudo pacman -Syyu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot terminus-font neofetch alsa-utils mpd mpc ncmpcpp
+sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot alsa-utils mpd mpc ncmpcpp
+
+# Instalar fuente con íconos
+sudo mkdir -p /usr/share/fonts/ttf/FiraCode
+cd /usr/share/fonts/ttf/FiraCode/
+sudo wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+cd
+fc-cache
 
 # Instalar controlador de GPU Intel
 sudo pacman -S --noconfirm xf86-video-intel
@@ -22,22 +28,20 @@ git clone https://aur.archlinux.org/picom-ibhagwan-git.git ~/.local/src/picom/
 cd ~/.local/src/picom/
 makepkg -si
 
-# Instalar fuente para braille
-git clone https://aur.archlinux.org/ttf-ubraille.git ~/.local/src/ubraille/
-cd ~/.local/src/ubraille/
+# Instalar pfetch
+git clone https://aur.archlinux.org/pfetch.git ~/.local/src/pfetch/
+cd ~/.local/src/pfetch/
 makepkg -si
+
+# Instalar fuente para braille
+#git clone https://aur.archlinux.org/ttf-ubraille.git ~/.local/src/ubraille/
+#cd ~/.local/src/ubraille/
+#makepkg -si
 
 # Instalar monitor de sistema gotop
-git clone https://aur.archlinux.org/gotop.git ~/.local/src/gotop/
-cd ~/.local/src/gotop/
-makepkg -si
-
-# Instalar una fuente con íconos
-sudo mkdir -p /usr/share/fonts/ttf/FiraCode
-cd /usr/share/fonts/ttf/FiraCode/
-sudo wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
-cd
-fc-cache
+#git clone https://aur.archlinux.org/gotop.git ~/.local/src/gotop/
+#cd ~/.local/src/gotop/
+#makepkg -si
 
 # Crear enlaces simbólicos de los archivos de configuración
 rm ~/.xinitrc
@@ -56,4 +60,5 @@ startx
 
 # Hacer ejecutable al script
 # chmod +x instalacion.sh
+# Ejecutar el script
 # ./dotfiles/instalacion.sh
