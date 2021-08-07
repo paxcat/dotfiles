@@ -4,7 +4,7 @@
 sudo pacman -Syyu --noconfirm
 
 # Instalar xorg, dependencias para dwm y herramientas
-sudo pacman -S --noconfirm wget base-devel cmake linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot alsa-utils mpd mpc ncmpcpp
+sudo pacman -S --noconfirm wget base-devel linux-headers xdg-user-dirs xdg-utils libev libx11 libxft libxinerama xorg-server xorg-xinit xorg-xrandr xsel xwallpaper sxiv scrot alsa-utils mpd mpc ncmpcpp
 
 # Instalar fuente con íconos
 sudo mkdir -p /usr/share/fonts/ttf/FiraCode
@@ -54,6 +54,12 @@ ln -s ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 
 # Descargar mi configuración de Neovim
 git clone https://github.com/MrSniezny/nvim ~/.config/nvim/
+
+# Eliminar paquetes huérfanos
+sudo pacman -Rns $(pacman -Qtdq)
+
+# Borrar cache
+sudo pacman -Sc
 
 # Iniciar xorg
 startx
